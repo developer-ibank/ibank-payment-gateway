@@ -1,0 +1,263 @@
+<xendit>
+	<config>
+		<url-create-trx-ewallet>https://api.xendit.co/ewallets/charges</url-create-trx-ewallet>
+		<url-create-trx-invoice>https://api.xendit.co/v2/invoices</url-create-trx-invoice>
+		<url-create-trx-retail-outlet>https://api.xendit.co/fixed_payment_code</url-create-trx-retail-outlet>
+		<url-create-qris>https://api.xendit.co/qr_codes</url-create-qris>
+		<url-create-virtual-account>https://api.xendit.co/callback_virtual_accounts</url-create-virtual-account>
+		<api-key>xnd_development_zoI8LfvfAZi8HnsObxtwqcoQXW21sEAFJJn1as1e6yFXs4GshxtMPr08LL8Ls7</api-key>
+		<password></password>
+		<checkout-method>ONE_TIME_PAYMENT</checkout-method>
+		<success-redirect-url>https://sandbox.ibankpos.id/billingInquiry.do?act=paymentSuccess&amp;tid=${tid}</success-redirect-url>
+		<callback-url>https://sandbox.ibankpos.id/xenditCallback.do</callback-url>
+		<callback-token>DVHiEXXDiOzQB9XLZ1ckqc6weYYf2PeYbb4j1eBA8J9bDPta</callback-token>
+		<invoice-duration-in-minutes>1440</invoice-duration-in-minutes>
+		<auto-pay-retail-outlet>0</auto-pay-retail-outlet>
+		<auto-pay-virtual-account>0</auto-pay-virtual-account>
+		<auto-pay-qris>0</auto-pay-qris>
+		<fee-tax-value>11</fee-tax-value>
+		<payment-methods>
+			<channel-groups group-id="virtual_account" group-name="Transfer Bank" group-status="active">	
+				<channel id="MANDIRI" name="MANDIRI" img="img/mandiri.png" priority="1" status="active" charge-type="fixValue" active-link-duration="10080" max-length-name="20">	
+					<charge-fix-value>4500</charge-fix-value>
+				</channel>
+				<channel id="BRI" name="BRI" img="img/bri.png" priority="2" status="active" charge-type="fixValue" active-link-duration="10080" max-length-name="20">	
+					<charge-fix-value>4500</charge-fix-value>
+				</channel>
+				<channel id="BNI" name="BNI" img="img/bni.png" priority="3" status="active" charge-type="fixValue" active-link-duration="10080" max-length-name="100">	
+					<charge-fix-value>4500</charge-fix-value>
+				</channel>
+				<channel id="BCA" name="BCA" img="img/bca.png" priority="4" status="inactive" charge-type="fixValue" active-link-duration="10080" max-length-name="30">	
+					<charge-fix-value>4500</charge-fix-value>
+				</channel>
+				<channel id="BJB" name="BJB" img="img/bjb.png" priority="5" status="active" charge-type="fixValue" active-link-duration="10080" max-length-name="100">	
+					<charge-fix-value>4500</charge-fix-value>
+				</channel>
+				<channel id="BSI" name="BSI" img="img/bsi.png" priority="6" status="active" charge-type="fixValue" active-link-duration="" max-length-name="30">	
+					<charge-fix-value>4500</charge-fix-value>
+				</channel>
+				<channel id="CIMB" name="CIMB" img="" priority="7" status="active" charge-type="fixValue" active-link-duration="10080" max-length-name="200">	
+					<charge-fix-value>4500</charge-fix-value>
+				</channel>
+				<channel id="PERMATA" name="PERMATA" img="img/permata.png" priority="8" status="active" charge-type="fixValue" active-link-duration="10080" max-length-name="20">	
+					<charge-fix-value>4500</charge-fix-value>
+				</channel>
+				<channel id="DBS" name="DBS" img="" priority="9" status="inactive" charge-type="fixValue" active-link-duration="10080" max-length-name="70">	
+					<charge-fix-value>4500</charge-fix-value>
+				</channel>
+				<channel id="SAHABAT_SAMPOERNA" name="SAMPOERNA" img="" priority="10" status="inactive" charge-type="fixValue" active-link-duration="10080" max-length-name="50">	
+					<charge-fix-value>4500</charge-fix-value>
+				</channel>
+			</channel-groups>	
+			<channel-groups group-id="ewallet" group-name="Dompet Digital" group-status="active">	
+				<channel id="ID_OVO" name="OVO" img="img/ovo.png" priority="1" status="active" charge-type="percentage" active-link-duration="0.9">	
+					<charge-percentage-value>3</charge-percentage-value>
+				</channel>
+				<channel id="ID_DANA" name="DANA" img="img/dana.png" priority="2" status="active" charge-type="percentage" active-link-duration="30">	
+					<charge-percentage-value>1.6</charge-percentage-value>
+				</channel>
+				<channel id="ID_SHOPEEPAY" name="SHOPEE PAY" img="img/spay.png" priority="3" status="active" charge-type="percentage" active-link-duration="30">	
+					<charge-percentage-value>4</charge-percentage-value>
+				</channel>
+				<channel id="ID_LINKAJA" name="LINKAJA" img="img/linkaja.png" priority="4" status="active" charge-type="percentage" active-link-duration="30">	
+					<charge-percentage-value>1.6</charge-percentage-value>
+				</channel>
+			</channel-groups>
+			<channel-groups group-id="retail" group-name="Outlet Ritel" group-status="active">	
+				<channel id="ALFAMART" name="ALFAMART" img="img/alfamart.png" priority="1" status="active" charge-type="fixValue" active-link-duration="10080">	
+					<charge-fix-value>5000</charge-fix-value>
+				</channel>
+				<channel id="INDOMARET" name="INDOMARET" img="" priority="2" status="inactive" charge-type="fixValue" active-link-duration="10080">	
+					<charge-fix-value>5000</charge-fix-value>
+				</channel>
+			</channel-groups>				
+			<channel-groups group-id="credit_debit" group-name="Kartu Kredit/Debit" group-status="active">	
+				<channel id="CREDIT_CARD" name="Kartu Kredit" img="img/mastercard.png" priority="1" status="active" charge-type="fixValueAndPercentage">	
+					<charge-fix-value>2000</charge-fix-value>
+					<charge-percentage-value>3</charge-percentage-value>
+				</channel>
+				<channel id="DEBIT_CARD" name="Direct Debit" img="img/visa.png" priority="2" status="inactive" charge-type="percentage">	
+					<charge-percentage-value>1.9</charge-percentage-value>
+				</channel>
+			</channel-groups>	
+			<channel-groups group-id="qr_code" group-name="QRIS" group-status="active">	
+				<channel id="DYNAMIC" name="QRIS" img="" priority="1" status="active" charge-type="percentage">	
+					<charge-percentage-value>0.7</charge-percentage-value>
+				</channel>
+			</channel-groups>
+		</payment-methods>
+	</config>
+	<accounts>
+		<account id="579076">
+			<org-name>Sengked Fiber</org-name>
+			<org-email>ptuas@ibank.co.id</org-email>
+			<api-key>xnd_development_bnnDEe04k1uIeud8dXuD5aGCjNKsHFvYlWx1LxVViImb75Jiz9HbB1WYoikGkXd0</api-key>
+			<password></password>
+			<checkout-method>ONE_TIME_PAYMENT</checkout-method>
+			<success-redirect-url>https://sandbox.ibankpos.id/billingInquiry.do?act=paymentSuccess&amp;tid=${tid}</success-redirect-url>
+			<callback-url>https://sandbox.ibankpos.id/callbackGateway.do?cid=ODNhMDYwNGVjZmZhYTM2ODA1YzYzOGQzMmQ5OTU3Y2I=</callback-url>
+			<callback-token>pkhs23oHc0hh4ItxdxHMD43DKqekTOERYsCOAGRlEQXMMlzl</callback-token>
+			<invoice-duration-in-minutes>1440</invoice-duration-in-minutes>
+			<auto-pay-retail-outlet>0</auto-pay-retail-outlet>
+			<auto-pay-virtual-account>0</auto-pay-virtual-account>
+			<auto-pay-qris>0</auto-pay-qris>
+			<fee-tax-value>11</fee-tax-value>
+			<payment-methods>
+				<channel-groups group-id="virtual_account" group-name="Transfer Bank" group-status="active">	
+					<channel id="MANDIRI" name="MANDIRI" img="img/mandiri.png" priority="1" status="active" charge-type="fixValue" active-link-duration="10080" max-length-name="20">	
+						<charge-fix-value>4500</charge-fix-value>
+					</channel>
+					<channel id="BRI" name="BRI" img="img/bri.png" priority="2" status="active" charge-type="fixValue" active-link-duration="10080" max-length-name="20">	
+						<charge-fix-value>4500</charge-fix-value>
+					</channel>
+					<channel id="BNI" name="BNI" img="img/bni.png" priority="3" status="active" charge-type="fixValue" active-link-duration="10080" max-length-name="100">	
+						<charge-fix-value>4500</charge-fix-value>
+					</channel>
+					<channel id="BCA" name="BCA" img="img/bca.png" priority="4" status="inactive" charge-type="fixValue" active-link-duration="10080" max-length-name="30">	
+						<charge-fix-value>4500</charge-fix-value>
+					</channel>
+					<channel id="BJB" name="BJB" img="img/bjb.png" priority="5" status="active" charge-type="fixValue" active-link-duration="10080" max-length-name="100">	
+						<charge-fix-value>4500</charge-fix-value>
+					</channel>
+					<channel id="BSI" name="BSI" img="img/bsi.png" priority="6" status="active" charge-type="fixValue" active-link-duration="" max-length-name="30">	
+						<charge-fix-value>4500</charge-fix-value>
+					</channel>
+					<channel id="CIMB" name="CIMB" img="" priority="7" status="active" charge-type="fixValue" active-link-duration="10080" max-length-name="200">	
+						<charge-fix-value>4500</charge-fix-value>
+					</channel>
+					<channel id="PERMATA" name="PERMATA" img="img/permata.png" priority="8" status="active" charge-type="fixValue" active-link-duration="10080" max-length-name="20">	
+						<charge-fix-value>4500</charge-fix-value>
+					</channel>
+					<channel id="DBS" name="DBS" img="" priority="9" status="inactive" charge-type="fixValue" active-link-duration="10080" max-length-name="70">	
+						<charge-fix-value>4500</charge-fix-value>
+					</channel>
+					<channel id="SAHABAT_SAMPOERNA" name="SAMPOERNA" img="" priority="10" status="inactive" charge-type="fixValue" active-link-duration="10080" max-length-name="50">	
+						<charge-fix-value>4500</charge-fix-value>
+					</channel>
+				</channel-groups>	
+				<channel-groups group-id="ewallet" group-name="Dompet Digital" group-status="active">	
+					<channel id="ID_OVO" name="OVO" img="img/ovo.png" priority="1" status="active" charge-type="percentage" active-link-duration="0.9">	
+						<charge-percentage-value>3</charge-percentage-value>
+					</channel>
+					<channel id="ID_DANA" name="DANA" img="img/dana.png" priority="2" status="active" charge-type="percentage" active-link-duration="30">	
+						<charge-percentage-value>1.6</charge-percentage-value>
+					</channel>
+					<channel id="ID_SHOPEEPAY" name="SHOPEE PAY" img="img/spay.png" priority="3" status="active" charge-type="percentage" active-link-duration="30">	
+						<charge-percentage-value>4</charge-percentage-value>
+					</channel>
+					<channel id="ID_LINKAJA" name="LINKAJA" img="img/linkaja.png" priority="4" status="active" charge-type="percentage" active-link-duration="30">	
+						<charge-percentage-value>1.6</charge-percentage-value>
+					</channel>
+				</channel-groups>
+				<channel-groups group-id="retail" group-name="Outlet Ritel" group-status="active">	
+					<channel id="ALFAMART" name="ALFAMART" img="img/alfamart.png" priority="1" status="active" charge-type="fixValue" active-link-duration="10080">	
+						<charge-fix-value>5000</charge-fix-value>
+					</channel>
+					<channel id="INDOMARET" name="INDOMARET" img="" priority="2" status="inactive" charge-type="fixValue" active-link-duration="10080">	
+						<charge-fix-value>5000</charge-fix-value>
+					</channel>
+				</channel-groups>				
+				<channel-groups group-id="credit_debit" group-name="Kartu Kredit/Debit" group-status="active">	
+					<channel id="CREDIT_CARD" name="Kartu Kredit" img="img/mastercard.png" priority="1" status="active" charge-type="fixValueAndPercentage">	
+						<charge-fix-value>2000</charge-fix-value>
+						<charge-percentage-value>3</charge-percentage-value>
+					</channel>
+					<channel id="DEBIT_CARD" name="Direct Debit" img="img/visa.png" priority="2" status="inactive" charge-type="percentage">	
+						<charge-percentage-value>1.9</charge-percentage-value>
+					</channel>
+				</channel-groups>	
+				<channel-groups group-id="qr_code" group-name="QRIS" group-status="active">	
+					<channel id="DYNAMIC" name="QRIS" img="" priority="1" status="active" charge-type="percentage">	
+						<charge-percentage-value>0.7</charge-percentage-value>
+					</channel>
+				</channel-groups>
+			</payment-methods>
+		</account>
+		
+		<account id="011006">
+			<org-name>SIMAK ADISANGGORO</org-name>
+			<org-email>kampus_a@adisanggoro.sch.id</org-email>
+			<api-key>xnd_development_dtqyBc6MZuMfw0ZChXukw6BTXcCS4ft39CcSD4aemLOves7SIpRKODpEhLb</api-key>
+			<password></password>
+			<checkout-method>ONE_TIME_PAYMENT</checkout-method>
+			<success-redirect-url>https://sbsimak-smk.sengkedcloud.com/responPaymentDigital.do?tid=${tid}</success-redirect-url>
+			<callback-url>https://sbsimak-smk.sengkedcloud.com/callbackGateway.do?cid=ZDU0ZTY2ODBiMzdkZjhlYzg0ZTgzYmQ0MmM0YzM0ZDY=</callback-url>
+			<callback-token>ab7BmiAYo0EM2bDP8485TBZIjWONmv78Si8rwhJVr1ZrdN5d</callback-token>
+			<invoice-duration-in-minutes>1440</invoice-duration-in-minutes>
+			<auto-pay-retail-outlet>0</auto-pay-retail-outlet>
+			<auto-pay-virtual-account>0</auto-pay-virtual-account>
+			<auto-pay-qris>0</auto-pay-qris>
+			<fee-tax-value>11</fee-tax-value>
+			<payment-methods>
+				<channel-groups group-id="virtual_account" group-name="Transfer Bank" group-status="active">	
+					<channel id="MANDIRI" name="MANDIRI" img="img/mandiri.png" priority="1" status="active" charge-type="fixValue" active-link-duration="10080" max-length-name="20">	
+						<charge-fix-value>4500</charge-fix-value>
+					</channel>
+					<channel id="BRI" name="BRI" img="img/bri.png" priority="2" status="active" charge-type="fixValue" active-link-duration="10080" max-length-name="20">	
+						<charge-fix-value>4500</charge-fix-value>
+					</channel>
+					<channel id="BNI" name="BNI" img="img/bni.png" priority="3" status="active" charge-type="fixValue" active-link-duration="10080" max-length-name="100">	
+						<charge-fix-value>4500</charge-fix-value>
+					</channel>
+					<channel id="BCA" name="BCA" img="img/bca.png" priority="4" status="inactive" charge-type="fixValue" active-link-duration="10080" max-length-name="30">	
+						<charge-fix-value>4500</charge-fix-value>
+					</channel>
+					<channel id="BJB" name="BJB" img="img/bjb.png" priority="5" status="active" charge-type="fixValue" active-link-duration="10080" max-length-name="100">	
+						<charge-fix-value>4500</charge-fix-value>
+					</channel>
+					<channel id="BSI" name="BSI" img="img/bsi.png" priority="6" status="active" charge-type="fixValue" active-link-duration="" max-length-name="30">	
+						<charge-fix-value>4500</charge-fix-value>
+					</channel>
+					<channel id="CIMB" name="CIMB" img="" priority="7" status="active" charge-type="fixValue" active-link-duration="10080" max-length-name="200">	
+						<charge-fix-value>4500</charge-fix-value>
+					</channel>
+					<channel id="PERMATA" name="PERMATA" img="img/permata.png" priority="8" status="active" charge-type="fixValue" active-link-duration="10080" max-length-name="20">	
+						<charge-fix-value>4500</charge-fix-value>
+					</channel>
+					<channel id="DBS" name="DBS" img="" priority="9" status="inactive" charge-type="fixValue" active-link-duration="10080" max-length-name="70">	
+						<charge-fix-value>4500</charge-fix-value>
+					</channel>
+					<channel id="SAHABAT_SAMPOERNA" name="SAMPOERNA" img="" priority="10" status="inactive" charge-type="fixValue" active-link-duration="10080" max-length-name="50">	
+						<charge-fix-value>4500</charge-fix-value>
+					</channel>
+				</channel-groups>	
+				<channel-groups group-id="ewallet" group-name="Dompet Digital" group-status="active">	
+					<channel id="ID_OVO" name="OVO" img="img/ovo.png" priority="1" status="active" charge-type="percentage" active-link-duration="0.9">	
+						<charge-percentage-value>3</charge-percentage-value>
+					</channel>
+					<channel id="ID_DANA" name="DANA" img="img/dana.png" priority="2" status="active" charge-type="percentage" active-link-duration="30">	
+						<charge-percentage-value>1.6</charge-percentage-value>
+					</channel>
+					<channel id="ID_SHOPEEPAY" name="SHOPEE PAY" img="img/spay.png" priority="3" status="active" charge-type="percentage" active-link-duration="30">	
+						<charge-percentage-value>4</charge-percentage-value>
+					</channel>
+					<channel id="ID_LINKAJA" name="LINKAJA" img="img/linkaja.png" priority="4" status="active" charge-type="percentage" active-link-duration="30">	
+						<charge-percentage-value>1.6</charge-percentage-value>
+					</channel>
+				</channel-groups>
+				<channel-groups group-id="retail" group-name="Outlet Ritel" group-status="active">	
+					<channel id="ALFAMART" name="ALFAMART" img="img/alfamart.png" priority="1" status="active" charge-type="fixValue" active-link-duration="10080">	
+						<charge-fix-value>5000</charge-fix-value>
+					</channel>
+					<channel id="INDOMARET" name="INDOMARET" img="" priority="2" status="inactive" charge-type="fixValue" active-link-duration="10080">	
+						<charge-fix-value>5000</charge-fix-value>
+					</channel>
+				</channel-groups>				
+				<channel-groups group-id="credit_debit" group-name="Kartu Kredit/Debit" group-status="active">	
+					<channel id="CREDIT_CARD" name="Kartu Kredit" img="img/mastercard.png" priority="1" status="active" charge-type="fixValueAndPercentage">	
+						<charge-fix-value>2000</charge-fix-value>
+						<charge-percentage-value>3</charge-percentage-value>
+					</channel>
+					<channel id="DEBIT_CARD" name="Direct Debit" img="img/visa.png" priority="2" status="inactive" charge-type="percentage">	
+						<charge-percentage-value>1.9</charge-percentage-value>
+					</channel>
+				</channel-groups>	
+				<channel-groups group-id="qr_code" group-name="QRIS" group-status="active">	
+					<channel id="DYNAMIC" name="QRIS" img="" priority="1" status="active" charge-type="percentage">	
+						<charge-percentage-value>0.7</charge-percentage-value>
+					</channel>
+				</channel-groups>
+			</payment-methods>
+		</account>
+	</accounts>
+</xendit>

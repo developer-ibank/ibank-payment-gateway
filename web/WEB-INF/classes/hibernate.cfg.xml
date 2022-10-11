@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC 
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN" 
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/ibank-dev?autoReconnect=true&amp;useOldAliasMetadataBehavior=true</property>
+		<property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">socrates</property>
+
+		<!--property name="hibernate.connection.url">jdbc:mysql://49.0.0.158:3306/ibank-dev?autoReconnect=true&amp;useOldAliasMetadataBehavior=true</property>  		
+		<property name="hibernate.connection.username">rhino</property>
+        <property name="hibernate.connection.password">core-ibank010101</property-->
+		
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>		
+        
+		<property name="hibernate.show_sql">false</property>
+		<property name="hibernate.cglib.use_reflection_optimizer">true</property>
+		<property name="hibernate.dbcp.maxActive">10</property>
+		<property name="hibernate.dbcp.maxWait">1000</property>
+		<property name="hibernate.dbcp.maxIdle">10</property>
+		<property name="hibernate.dbcp.ps.maxActive">10</property>
+		<property name="hibernate.dbcp.ps.maxWait">1000</property>
+		<property name="hibernate.dbcp.ps.maxIdle">10</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>		
+		<property name="hibernate.connection.pool_size">0</property>	
+		<!-- Basic Module -->	
+		<mapping resource="hbm/basic/AppUser.hbm.xml" />
+		<mapping resource="hbm/basic/Role.hbm.xml" />
+		<mapping resource="hbm/basic/Privilege.hbm.xml" />
+		<mapping resource="hbm/basic/Attribute.hbm.xml" />
+		<mapping resource="hbm/basic/Organization.hbm.xml" />
+		<mapping resource="hbm/basic/SystemSequence.hbm.xml" />
+		<mapping resource="hbm/basic/Country.hbm.xml" />
+		<mapping resource="hbm/basic/Province.hbm.xml" />
+		<mapping resource="hbm/basic/City.hbm.xml" />
+		<mapping resource="hbm/basic/Report.hbm.xml" />
+		<mapping resource="hbm/basic/ReportCreator.hbm.xml" />
+		<mapping resource="hbm/basic/ReportCreatorParameter.hbm.xml" />
+		<mapping resource="hbm/basic/ReportPerson.hbm.xml" />
+		
+		<!-- Master Module -->
+		<mapping resource="hbm/master/DasarHukum.hbm.xml" />
+		<mapping resource="hbm/master/JenisKegiatan.hbm.xml" />
+		<mapping resource="hbm/master/CurrencyRate.hbm.xml" />
+		<mapping resource="hbm/master/CurrencyTable.hbm.xml" />
+		
+		
+		<!-- SIM Module -->
+		<mapping resource="hbm/sim/Places.hbm.xml" />
+		<mapping resource="hbm/sim/TanamanObat.hbm.xml" />
+		<mapping resource="hbm/sim/NewsLetter.hbm.xml" />
+		<mapping resource="hbm/sim/KonsultasiKesehatan.hbm.xml" />		
+		<mapping resource="hbm/sim/Polling.hbm.xml" />
+		<mapping resource="hbm/sim/PollingDetail.hbm.xml" />
+
+		<mapping resource="hbm/sim/JadwalKegiatan.hbm.xml" />
+		<mapping resource="hbm/sim/JadwalKegiatanDasarHukum.hbm.xml" />
+		<mapping resource="hbm/sim/JadwalKegiatanProdukHukum.hbm.xml" /> <!-- 0 (new) -->
+		<mapping resource="hbm/sim/JadwalKegiatanPihakLain.hbm.xml" />
+		<mapping resource="hbm/sim/Rapat.hbm.xml" />
+		<mapping resource="hbm/sim/RapatDasarHukum.hbm.xml" />
+		<mapping resource="hbm/sim/RapatProdukHukum.hbm.xml" /> <!-- 1 (new)-->
+		<mapping resource="hbm/sim/RapatDaftarUndangan.hbm.xml" />
+		<mapping resource="hbm/sim/RapatDaftarHadir.hbm.xml" /> <!-- new -->
+		<mapping resource="hbm/sim/KunjunganKerja.hbm.xml" />
+		<mapping resource="hbm/sim/KunjunganKerjaDasarHukum.hbm.xml" />
+		<mapping resource="hbm/sim/KunjunganKerjaProdukHukum.hbm.xml" /> <!-- 2 (new)-->
+		<mapping resource="hbm/sim/KunjunganKerjaContactPerson.hbm.xml" />
+		<mapping resource="hbm/sim/KunjunganKerjaDaftarHadir.hbm.xml" />
+		<mapping resource="hbm/sim/Anggota.hbm.xml" />
+		<mapping resource="hbm/sim/Reses.hbm.xml" />
+		<mapping resource="hbm/sim/ResesDasarHukum.hbm.xml" />
+		<mapping resource="hbm/sim/ResesProdukHukum.hbm.xml" /> <!-- 3 (new)-->
+		<mapping resource="hbm/sim/ResesContactPerson.hbm.xml" />
+		<mapping resource="hbm/sim/ResesDaftarHadir.hbm.xml" />
+		<mapping resource="hbm/sim/ResesAttachment.hbm.xml" />
+		<mapping resource="hbm/sim/ResesGallery.hbm.xml" />
+		<mapping resource="hbm/sim/ResesAnggota.hbm.xml" />
+		<mapping resource="hbm/sim/ProdukHukum.hbm.xml" />
+		<mapping resource="hbm/sim/Aspirasi.hbm.xml" />
+		<mapping resource="hbm/sim/News.hbm.xml" />
+		<mapping resource="hbm/sim/Product.hbm.xml" />
+		<mapping resource="hbm/sim/ContentManagement.hbm.xml" />
+		<mapping resource="hbm/sim/Gallery.hbm.xml" />
+		<mapping resource="hbm/sim/GalleryPicture.hbm.xml" />
+		<mapping resource="hbm/sim/Links.hbm.xml" />
+		<mapping resource="hbm/sim/ContactUs.hbm.xml" />
+		<mapping resource="hbm/sim/PortalMenu.hbm.xml" />
+		<mapping resource="hbm/sim/WebLink.hbm.xml" />
+		<mapping resource="hbm/sim/Banner.hbm.xml" />
+		<mapping resource="hbm/sim/NewsTicker.hbm.xml" />
+		<mapping resource="hbm/sim/BukuTamu.hbm.xml" />
+		<mapping resource="hbm/sim/TbClient.hbm.xml" />
+		<mapping resource="hbm/sim/Slider.hbm.xml" />
+		<mapping resource="hbm/sim/Projects.hbm.xml" />
+		<mapping resource="hbm/sim/ProjectModule.hbm.xml" />
+		<mapping resource="hbm/sim/HibernateMapping.hbm.xml" />
+		<mapping resource="hbm/sim/HibernateMappingDetail.hbm.xml" />
+		<mapping resource="hbm/sim/Faq.hbm.xml" />
+		<mapping resource="hbm/sim/WebShortcut.hbm.xml" />
+		<mapping resource="hbm/sim/Survey.hbm.xml" />
+		<mapping resource="hbm/sim/SurveyAnswer.hbm.xml" />
+		<mapping resource="hbm/sim/DaftarOnline.hbm.xml" />
+		
+		<!-- new -->
+		<mapping resource="hbm/sim/JenisProdukHukum.hbm.xml" />
+		<mapping resource="hbm/sim/ProdukHukumDprd.hbm.xml" />
+		<mapping resource="hbm/sim/ProdukHukumDprdAttachment.hbm.xml" />
+		<mapping resource="hbm/sim/AprindoMembership.hbm.xml" />
+		<!-- new -->
+		
+		<mapping resource="hbm/hosting/TipePaket.hbm.xml" />
+		<mapping resource="hbm/hosting/TipePaketAdds.hbm.xml" />
+		<mapping resource="hbm/hosting/Paket.hbm.xml" />
+		<mapping resource="hbm/hosting/PaketKomponen.hbm.xml" />
+		<mapping resource="hbm/hosting/PaketAttribute.hbm.xml" />
+		<mapping resource="hbm/hosting/KonfirmasiPembayaran.hbm.xml" />
+		<mapping resource="hbm/hosting/Testimonial.hbm.xml" />
+		<mapping resource="hbm/hosting/People.hbm.xml" />
+		<mapping resource="hbm/hosting/WhmAcc.hbm.xml" />
+		<mapping resource="hbm/hosting/WhmPck.hbm.xml" />
+		<mapping resource="hbm/hosting/OrderProduct.hbm.xml" />
+		<mapping resource="hbm/hosting/Membership.hbm.xml" />
+		<mapping resource="hbm/hosting/CloudStorage.hbm.xml" />
+		<mapping resource="hbm/hosting/FileManager.hbm.xml" />
+		<mapping resource="hbm/hosting/DomainTrx.hbm.xml" />
+		<mapping resource="hbm/hosting/DownloadManager.hbm.xml" />
+		<mapping resource="hbm/hosting/DownloadManagerTrx.hbm.xml" />
+		<mapping resource="hbm/hosting/OrderVoucher.hbm.xml" />
+		<mapping resource="hbm/hosting/Distributor.hbm.xml" />
+		
+		<mapping resource="hbm/edu/Alumni.hbm.xml" />
+		<mapping resource="hbm/edu/AlumniFams.hbm.xml" />
+		<mapping resource="hbm/edu/AlumniJobs.hbm.xml" />
+		<mapping resource="hbm/edu/AlumniGalleries.hbm.xml" />
+		
+		<mapping resource="hbm/simbada/Aset.hbm.xml" />
+		
+		<!-- cika connector -->
+		<mapping resource="hbm/cika/PosClient.hbm.xml" />
+		<mapping resource="hbm/cika/PosProduct.hbm.xml" />
+		<mapping resource="hbm/cika/PosDiscount.hbm.xml" />
+		<mapping resource="hbm/cika/PosPromo.hbm.xml" />
+		
+		<!-- ibank module -->
+		<mapping resource="hbm/ibank/Kurs.hbm.xml" />
+		<mapping resource="hbm/ibank/Nasabah.hbm.xml" />
+		<mapping resource="hbm/ibank/Item.hbm.xml" />
+		<mapping resource="hbm/ibank/ItemGroup.hbm.xml" />
+		<mapping resource="hbm/ibank/ItemStock.hbm.xml" />
+		<mapping resource="hbm/ibank/SummarySaldo.hbm.xml" />
+		<mapping resource="hbm/ibank/TrxGoldGram.hbm.xml" />
+		<mapping resource="hbm/ibank/TrxGoldGramDetail.hbm.xml" />
+		<mapping resource="hbm/ibank/TrxSilverGram.hbm.xml" />
+		<mapping resource="hbm/ibank/TrxSilverGramDetail.hbm.xml" />
+		<mapping resource="hbm/ibank/TrxRumahGadai.hbm.xml" />
+		<mapping resource="hbm/ibank/TrxRumahGadaiDetail.hbm.xml" />
+		<mapping resource="hbm/ibank/TrxMataUang.hbm.xml" />
+		<mapping resource="hbm/ibank/TabunganAttaqwa.hbm.xml" />
+		<mapping resource="hbm/ibank/DepositoAttaqwa.hbm.xml" />
+		<mapping resource="hbm/ibank/JamTransaksi.hbm.xml" />
+		<mapping resource="hbm/ibank/ItemAttribute.hbm.xml" />
+		<mapping resource="hbm/ibank/Notification.hbm.xml" />
+		<mapping resource="hbm/ibank/TiketSession.hbm.xml" />
+		<mapping resource="hbm/ibank/TiketSupport.hbm.xml" />
+		<mapping resource="hbm/ibank/SettingHariLibur.hbm.xml" />
+		<mapping resource="hbm/ibank/SettingHariLiburDetail.hbm.xml" />
+		<mapping resource="hbm/ibank/AdjustmentSaldo.hbm.xml" />
+		<mapping resource="hbm/ibank/HistoryTransaksiOld.hbm.xml" />
+		<mapping resource="hbm/ibank/TrxGoldGramCetak.hbm.xml" />
+		<mapping resource="hbm/ibank/TrxSilverGramCetak.hbm.xml" />
+		<mapping resource="hbm/ibank/TokenServer.hbm.xml" />
+		<mapping resource="hbm/ibank/MobileUser.hbm.xml" />
+		<mapping resource="hbm/ibank/NasabahTemp.hbm.xml" />
+		<mapping resource="hbm/ibank/Reminder.hbm.xml" />
+		<mapping resource="hbm/ibank/DaftarTransfer.hbm.xml" />
+		<mapping resource="hbm/ibank/DepositoNasabah.hbm.xml" />
+		<mapping resource="hbm/ibank/DepositoPropose.hbm.xml" />
+
+    </session-factory>
+</hibernate-configuration>
+

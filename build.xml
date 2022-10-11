@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="ibank-payment-gateway" default="jar" basedir=".">
+
+	<property name="src" location="src"/>
+	<property name="bin" location="bin"/>
+	<property name="web" location="web"/>
+	<property name="lib" location="${web}/WEB-INF/lib"/>
+ 
+ 
+	<path id="compile.class.path">
+		<fileset dir="${lib}">
+			<include name="*.*"/>
+		</fileset>
+	</path >
+	
+	<path id="compile.class.generator">
+		<fileset dir="${libGen}">
+			<include name="*.*"/>
+		</fileset>
+	</path >
+
+	<target name="init">
+	    <mkdir dir="${bin}"/>
+	    <mkdir dir="${src}"/>
+	    
+	    <mkdir dir="${web}"/>
+	    <mkdir dir="${lib}"/>
+	    
+	    <copy todir="${web}" overwrite="false">
+			<fileset dir="${generator}/web"/>
+		</copy>	    
+  	</target>
+	
+	
+	<target name="setup" depends="init, hibernate-java">
+		<copy todir="${web}" overwrite="false">
+			<fileset dir="generator/web"/>
+		</copy>		
+
+		<java fork="true" maxmemory="256m" failonerror="true" classpathref="compile.class.path" classname="com.project.mvcgen.MvcGenerator">
+			<arg value="all"/>
+			<arg value="${src}"/>
+			<arg value="${web}"/>
+			<arg value="struts"/>
+		</java>
+
+  	</target>
+
+
+	<target name="jthurana" depends="init, hibernate-java" description="Generate files">
+		<java fork="true" maxmemory="256m" failonerror="true" classpathref="compile.class.generator" classname="com.project.mvcgen.MvcGenerator">
+			<arg value="all"/>
+			<arg value="${src}"/>
+			<arg value="${web}"/>
+			<arg value="struts"/>
+			<arg value="false"/>
+		</java>
+	</target>
+	
+	<target name="hibernate-java" >
+		<taskdef name="hibernatetool" classname="org.hibernate.tool.ant.HibernateToolTask">
+			<classpath>
+				<fileset dir="${lib}">
+					<include name="*.jar"/>
+					<exclude name="${ant.project.name}.jar"/>
+				</fileset>
+			</classpath>
+ 	    </taskdef>
+
+		<hibernatetool destdir="${src}">
+			<classpath>
+				<path location="${src}"/>
+			</classpath>
+			<configuration configurationfile="${src}/hibernate.cfg.xml" />
+			<hbm2java/>
+		</hibernatetool>
+	</target>
+	
+	<target name="merging" depends="init" description="Merging Properties File.">
+		<java fork="true" maxmemory="256m" failonerror="true" classpathref="compile.class.path" classname="com.project.mvcgen.PropMerging"/>
+	</target>	
+	
+	
+	
+	<target name="jar" description="Generate files">
+    	<javac debug="true" srcdir="${src}" destdir="${bin}" includeantruntime="true">
+			<classpath>
+				<path refid="compile.class.path"/>
+			</classpath>
+		</javac>
+		
+		<jar jarfile="${lib}\${ant.project.name}.jar" basedir="${bin}"/>
+	</target>
+
+	<target name="jar-generator"  description="Generate Generator">	
+		<jar jarfile="${generator}\web\WEB-INF\lib\generator-3.3.jar" basedir="${generator-3.3}"/>
+	</target>
+
+	<target name="jar-otws" description="Generate files">
+    	<javac debug="true" srcdir="${otws}/WEB-INF/src" destdir="${otws}/WEB-INF/src">
+			<classpath>
+				<path refid="compile.class.path2"/>
+			</classpath>
+		</javac>	
+		<jar jarfile="${lib}/${ant.project.name}_otws.jar" basedir="${otws}/WEB-INF/src"/>
+		<copy todir="${otws}\WEB-INF\lib" file="${lib}/${ant.project.name}_otws.jar"/>
+	</target>
+
+</project>
