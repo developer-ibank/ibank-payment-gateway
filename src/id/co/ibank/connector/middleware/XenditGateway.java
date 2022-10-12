@@ -50,6 +50,7 @@ public class XenditGateway {
 	public static void main(String[] args) {
 		try {
 			System.out.println("================== XENDIT API ==================");
+			System.out.println("================== OK ==================");
 			XenditGateway xendit = new XenditGateway();
 			Calendar cal = Calendar.getInstance();
 			String trxCode = String.valueOf(cal.getTimeInMillis());
