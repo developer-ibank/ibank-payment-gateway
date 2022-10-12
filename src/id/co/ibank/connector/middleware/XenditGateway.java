@@ -52,6 +52,8 @@ public class XenditGateway {
 			System.out.println("================== XENDIT API ==================");
 			System.out.println("================== OK ==================");
 			System.out.println("================== 1 ==================");
+			System.out.println("================== OK ==================");
+
 			XenditGateway xendit = new XenditGateway();
 			Calendar cal = Calendar.getInstance();
 			String trxCode = String.valueOf(cal.getTimeInMillis());
